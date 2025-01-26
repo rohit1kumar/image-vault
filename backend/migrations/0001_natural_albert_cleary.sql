@@ -1,0 +1,1 @@
+CREATE INDEX "user_id_idx" ON "media_files" USING btree ("user_id");
