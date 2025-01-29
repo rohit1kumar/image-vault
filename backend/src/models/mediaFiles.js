@@ -1,7 +1,7 @@
 import { index, pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core'
-import { users } from './users.js'
+import users from './users.js'
 
-export const mediaFiles = pgTable(
+export default pgTable(
 	'media_files',
 	{
 		id: uuid('id').primaryKey().defaultRandom(),
