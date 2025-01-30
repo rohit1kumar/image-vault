@@ -36,7 +36,7 @@ const FileControls = ({ fileType, setFileType, handleFileUpload }) => {
         >
           <option value="">All Files</option>
           <option value="image">Images</option>
-          <option value="document">Documents</option>
+          <option value="video">Videos</option>
         </select>
       </div>
 

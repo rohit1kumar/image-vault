@@ -13,7 +13,7 @@ const MediaModal = ({ isOpen, onClose, media }) => {
 
   if (!isOpen || !media) return null;
 
-  const isVideo = media.type.startsWith('video/');
+  const isVideo = media.type === 'video';
 
   return (
     <div

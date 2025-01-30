@@ -5,12 +5,10 @@ const FileGrid = ({ files }) => {
   const [selectedMedia, setSelectedMedia] = useState(null);
 
   const handleMediaClick = (file) => {
-    if (file.fileType.startsWith('image/') || file.fileType.startsWith('video/')) {
-      setSelectedMedia({
-        url: file.fileUrl,
-        type: file.fileType
-      });
-    }
+    setSelectedMedia({
+      url: file.fileUrl,
+      type: file.fileType
+    });
   };
 
   return (
@@ -22,13 +20,13 @@ const FileGrid = ({ files }) => {
             className="border rounded p-4 cursor-pointer hover:shadow-md transition-shadow"
             onClick={() => handleMediaClick(file)}
           >
-            {file.fileType.startsWith('image/') ? (
+            {file.fileType === 'image' ? (
               <img
                 src={file.fileUrl}
                 alt={file.id}
                 className="w-full h-48 object-cover"
               />
-            ) : file.fileType.startsWith('video/') ? (
+            ) : file.fileType === 'video' ? (
               <div className="relative h-48">
                 <video
                   src={file.fileUrl}
@@ -36,7 +34,7 @@ const FileGrid = ({ files }) => {
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-black/20">
                   <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
+                    <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
               </div>

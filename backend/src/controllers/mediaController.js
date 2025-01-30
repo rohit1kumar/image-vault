@@ -27,7 +27,7 @@ export const uploadMedia = async (req, res) => {
 		const [mediaFile] = await db
 			.insert(media)
 			.values({
-				fileType,
+				fileType: fileType.split('/')[0],
 				userId: req.user.userId,
 				fileUrl: cloudinaryResponse.secure_url
 			})
