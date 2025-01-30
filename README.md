@@ -7,6 +7,10 @@
 - Frotnend: React, TailwindCSS,
 - Backend: ExpressJS, Postgres, Cloudinary (for storage)
 
+## DeployedURL
+- backend: https://image-vault.onrender.com
+- frontend: https://image-vault-five.vercel.app
+
 ## Database Design
 
 ![drawSQL-image-export-2025-01-30](https://github.com/user-attachments/assets/e19edfb0-4c55-4a05-9801-84f40e2f48e3)
