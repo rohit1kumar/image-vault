@@ -5,7 +5,6 @@ export default pgTable(
 	'media_files',
 	{
 		id: uuid('id').primaryKey().defaultRandom(),
-		fileName: text('file_name').notNull(),
 		fileType: text('file_type').notNull(),
 		fileUrl: text('file_url').notNull(),
 		uploadedAt: timestamp('uploaded_at').defaultNow().notNull(),
