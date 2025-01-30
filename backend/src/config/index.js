@@ -14,6 +14,8 @@ export default z
 		GOOGLE_CLIENT_ID: z.string(),
 		GOOGLE_CLIENT_SECRET: z.string(),
 		GOOGLE_CALLBACK_URL: z.string().url(),
+		// Frotnend URL
+		FRONTEND_URL: z.string().url(),
 		// cloudinary
 		CLOUDINARY_CLOUD_NAME: z.string(),
 		CLOUDINARY_API_KEY: z.string(),
