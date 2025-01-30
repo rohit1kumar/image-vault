@@ -7,7 +7,7 @@
 - Frotnend: React, TailwindCSS,
 - Backend: ExpressJS, Postgres, Cloudinary (for storage)
 
-## DeployedURL
+## Deployed URL
 - backend: https://image-vault.onrender.com
 - frontend: https://image-vault-five.vercel.app
 
