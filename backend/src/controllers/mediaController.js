@@ -45,7 +45,9 @@ export const uploadMedia = async (req, res) => {
 
 export const getUserMedia = async (req, res) => {
 	try {
-		const { fileType, page, pageSize } = req.query
+		const { fileType } = req.query
+		const page = Number(req.query.page) || 1
+		const pageSize = Number(req.query.pageSize) || 10
 		const offset = (page - 1) * pageSize
 
 		const userMedia = db
@@ -65,7 +67,7 @@ export const getUserMedia = async (req, res) => {
 		return res.status(statusCode.OK).json({
 			message: 'Media fetched successfully',
 			data,
-			meta: { ...req.query }
+			meta: { ...req.query, count: data?.length }
 		})
 	} catch (error) {
 		console.error('Fetch media error:', error)
