@@ -2,6 +2,8 @@ import db from '../config/database.js'
 import { media } from '../models/index.js'
 import config from '../config/index.js'
 import uploadToCloudinary from '../utils/cloudinary.js'
+import statusCode from '../config/statusCode.js'
+import { desc, eq } from 'drizzle-orm'
 
 export const uploadMedia = async (req, res) => {
 	try {
@@ -43,14 +45,28 @@ export const uploadMedia = async (req, res) => {
 
 export const getUserMedia = async (req, res) => {
 	try {
-		// Fetch media files for the authenticated user
-		const userMedia = await db
+		const { fileType, page, pageSize } = req.query
+		const offset = (page - 1) * pageSize
+
+		const userMedia = db
 			.select()
 			.from(media)
-			.where(eq(media.userId, req.user.id))
+			.where(eq(media.userId, req.user.userId))
 			.orderBy(desc(media.uploadedAt))
+			.limit(pageSize)
+			.offset(offset)
 
-		res.json(userMedia)
+		if (fileType) {
+			userMedia.where(eq(media.fileType, fileType))
+		}
+
+		const data = await userMedia
+
+		return res.status(statusCode.OK).json({
+			message: 'Media fetched successfully',
+			data,
+			meta: { ...req.query }
+		})
 	} catch (error) {
 		console.error('Fetch media error:', error)
 		res.status(500).json({ error: 'Failed to fetch media' })

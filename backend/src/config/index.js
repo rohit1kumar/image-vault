@@ -31,6 +31,8 @@ export default z
 				'image/webp',
 				'video/webm',
 				'video/mp4'
-			])
+			]),
+		// pagination
+		PAGINATION_PAGE_SIZE: z.coerce.number().default(10)
 	})
 	.parse(process.env)
