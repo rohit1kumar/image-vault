@@ -8,6 +8,7 @@
 - Backend: ExpressJS, Postgres, Cloudinary (for storage)
 
 ## Database Design
+![drawSQL-image-export-2025-01-30](https://github.com/user-attachments/assets/e19edfb0-4c55-4a05-9801-84f40e2f48e3)
 
 
 ## How to run
