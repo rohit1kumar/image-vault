@@ -13,7 +13,7 @@ export default async function uploadToCloudinary(
 	folder = config.CLOUDINARY_BUCKET_NAME
 ) {
 	try {
-		if (!file) {
+		if (!fileBuffer) {
 			throw new Error('File is required for upload')
 		}
 
