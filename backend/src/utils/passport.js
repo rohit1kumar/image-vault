@@ -12,7 +12,7 @@ export default function useGoogleStrategy() {
 			{
 				clientID: config.GOOGLE_CLIENT_ID,
 				clientSecret: config.GOOGLE_CLIENT_SECRET,
-				callbackURL: 'http://localhost:8000/api/v1/auth/google/callback'
+				callbackURL: config.GOOGLE_CALLBACK_URL
 			},
 			async function (accessToken, refreshToken, profile, cb) {
 				try {
